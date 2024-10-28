@@ -30,15 +30,16 @@
     socket.on("message", (message) => {
         const p = document.createElement('p');
         p.innerHTML = message;
-        allMessages.appendChild(p)
+        allMessages.appendChild(p);
     });
 
 
-    setBtn.addEventListener("click", (e) => {
+    sendBtn.addEventListener("click", () => {
         const message = messageInput.value;
         console.log(message);
-        socket.emit('user-message' ,message);
-    })
+        socket.emit('user-message' , message);
+        messageInput.value = ''; 
+    });
 </script>
 </body>
 </html>
